@@ -1,5 +1,6 @@
 # Data 
 pandas>=1.5.1
+fastparquet
 
 # Testing
 pytest>=7.1.2
