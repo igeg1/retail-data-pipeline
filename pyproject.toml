@@ -1,0 +1,26 @@
+[build-system]
+requires = ["setuptools", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "retail-data-pipeline"
+version = "0.1.0"
+description = "Building an ETL workflow for sales data."
+requires-python = ">=3.8"
+authors = [
+    {name = "Ivan Espinosa", email = "ivangesg@gmail.com"}
+]
+dependencies = [
+    "pandas>=1.5.1",
+    "fastparquet",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.1.2",
+]
+
+[tool.pytest.ini_options]
+pythonpath = ["."]
+testpaths = ["tests"]
+python_files = "test_*.py"
