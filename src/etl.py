@@ -7,6 +7,7 @@ def extract(store_data, extra_data, column = "index"):
     :param store_data: File path to a CSV file.
     :param extra_data: File path to a .parquet file.
     :param column: Label (name) of the column to merge the two DataFrames on.
+    :return: A pandas DataFrame with the raw, merged data.
     """
 
     store_data_df = pd.read_csv(store_data)
@@ -16,7 +17,7 @@ def extract(store_data, extra_data, column = "index"):
 
 def load(full_data, full_data_file_path, agg_data, agg_data_file_path):
     """
-    Loads two DataFrames into two separate .csv files using the specified paths.
+    Loads two pandas DataFrames into two separate .csv files using the specified paths.
     
     :param full_data: Pandas DataFrame with the full, clean data.
     :param full_data_file_path: String with a file path to save full_data to.
