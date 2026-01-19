@@ -32,3 +32,33 @@ def transform(raw_data):
     clean_data = clean_data[clean_data['Weekly_Sales'] >= min_sales]
 
     return clean_data
+
+
+def avg_weekly_sales_per_month(clean_data):
+    """
+    Aggregates retail data to calculate the average weekly sales for each month.
+
+    The function groups the data by the 'Month' column, computes the mean of 
+    'Weekly_Sales', and ensures the final output is sorted chronologically 
+    and formatted for financial reporting with two-decimal precision.
+    
+    :param clean_data: A pandas DataFrame with recently transformed, clean data.
+    :return: A pandas DataFrame with only two columns: Month and Weekly_Sales.
+    """
+
+    # Make a copy of clean_data with relevant columns
+    agg_data = clean_data[['Month', 'Weekly_Sales']].copy() 
+
+    # Group by Month and calculate the mean / average Weekly_Sales
+    agg_data = agg_data.groupby(['Month']).mean()
+
+    # Round to two decimals
+    agg_data = agg_data.round(2)
+
+    # Sort by Month in increasing order
+    agg_data = agg_data.sort_values(by='Month', ascending=True)
+    
+    # Reset the index 
+    agg_data = agg_data.reset_index()
+    
+    return agg_data
