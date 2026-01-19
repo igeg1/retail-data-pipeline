@@ -1,1 +1,5 @@
-pandas
+# Data 
+pandas>=1.5.1
+
+# Testing
+pytest>=7.1.2
